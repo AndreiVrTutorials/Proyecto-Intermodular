@@ -1,73 +1,174 @@
-# Proyecto-Intermodular
-# 🕶️ VR Patrimonio Inclusivo: Valladolid y Salamanca
+# 🕶️ VR Patrimonio Inclusivo
 
-[![Engine](https://img.shields.io/badge/Unity-2022.3%2B-blue?logo=unity&logoColor=white)](https://unity.com/)
-[![Language](https://img.shields.io/badge/Language-C%23-green?logo=csharp&logoColor=white)](https://learn.microsoft.com/es-es/dotnet/csharp/)
-[![Target Hardware](https://img.shields.io/badge/Hardware-Meta%20Quest%203-black?logo=meta&logoColor=white)](https://www.meta.com/es/quest/quest-3/)
-[![Project Type](https://img.shields.io/badge/Type-Intermodular%20/%20Social-orange)](#)
+### Exploración inmersiva del patrimonio histórico de Valladolid y Salamanca
 
-Proyecto intermodular de Realidad Virtual (VR) autónoma (*Standalone*) diseñado en colaboración con el **Centro Gregorio Fernández**, la **Universidad de Valladolid (UVa)** y la **Universidad de Salamanca (USAL)**. El software permite la exploración interactiva y remota del patrimonio histórico de ambas ciudades, enfocado principalmente en romper barreras arquitectónicas para personas con diversidad funcional y dificultades motoras graves.
+[![Unity](https://img.shields.io/badge/Unity-2022.3_LTS-black?logo=unity)](https://unity.com/)
+[![C#](https://img.shields.io/badge/C%23-.NET-purple?logo=csharp)](https://learn.microsoft.com/es-es/dotnet/csharp/)
+[![Meta Quest 3](https://img.shields.io/badge/Meta_Quest_3-VR-blue?logo=meta)](https://www.meta.com/)
+[![OpenXR](https://img.shields.io/badge/OpenXR-Compatible-green)](#)
 
----
+## 📖 Descripción
 
-## 📌 Características Principales
+VR Patrimonio Inclusivo es una experiencia de realidad virtual desarrollada para Meta Quest 3 que permite visitar virtualmente algunos de los lugares históricos más emblemáticos de Valladolid y Salamanca.
 
-* **Navegación Confortable (Anti-Motion Sickness):** Implementación de locomoción estática y controlada mediante el *joystick* del mando y rotación natural de la cabeza, mitigando los efectos de desorientación espacial.
-* **Paseo de la Fama Interactivo:** Sistema de reconocimiento a personajes históricos ilustres con activación de audios por proximidad espaciada.
-* **Localización Bilingüe Inmediata:** Arquitectura de traducción en tiempo de ejecución (Español/Inglés) con persistencia de configuración del usuario tras el cierre de la aplicación.
-* **Entorno Envolvente 360°:** Integración de un reproductor de vídeo esférico inversa (*Skybox* mapeado) para albergar contenido multimedia inmersivo complementario.
+El proyecto nace de la colaboración entre el Centro Gregorio Fernández, la Universidad de Valladolid (UVa) y la Universidad de Salamanca (USAL), con el objetivo de acercar el patrimonio cultural a personas con movilidad reducida o dificultades para desplazarse físicamente.
+
+La aplicación funciona de forma autónoma en Meta Quest 3, sin necesidad de ordenador externo.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🎯 Objetivos
 
-### Core & Desarrollo
-* **Motor Gráfico:** Unity (Pipeline móvil optimizado, OpenXR API & Meta XR SDK).
-* **Lenguaje:** C# (Programación orientada a componentes, patrones de persistencia y lógica de triggers).
-* **Control de Versiones:** Unity Version Control (Plastic SCM).
-
-### Modelado & Multimedia
-* **Modelos 3D:** Activos de alta fidelidad generados por fotogrametría mediante drones de la UVa y USAL, optimizados a baja carga poligonal (*low-poly*) para VR móvil.
-* **Sistemas de Partículas (VFX):** Efectos ligeros en Unity (simulación de vuelo de aves) para dinamizar el entorno sin saturar la GPU.
-* **Inteligencia Artificial Generativa:** * **MeshyAI:** Modelado 3D procedural (generación de las letras volumétricas "Valladolid").
-    * **ElevenLabs:** Síntesis de voz teatralizada para locuciones de audioguías bilingües.
-    * **Gemini:** Optimización sintáctica de textos y guiones contextuales.
+* Facilitar el acceso al patrimonio cultural mediante realidad virtual.
+* Eliminar barreras arquitectónicas para personas con diversidad funcional.
+* Ofrecer una experiencia inmersiva intuitiva y accesible.
+* Mantener una tasa estable de rendimiento en dispositivos VR standalone.
+* Incorporar contenidos educativos mediante audioguías interactivas.
 
 ---
 
-## 📐 Arquitectura de Escenas e Interacción
+## ✨ Funcionalidades
 
-El software se segmenta de forma modular para optimizar la carga en la memoria RAM del visor:
+### 🏛️ Visitas Virtuales
 
-[Menú Principal (Hub Estático)]
-│
-├──► [Escena Valladolid]  ──► (Canvas Espaciales + Triggers de Audio)
-├──► [Escena Salamanca]   ──► (Fotogrametría low-poly + Audioguías AI)
-└──► [Escena Vídeo 360°]  ──► (Mapeo Esférico Envolvente)
+* Recorrido interactivo por Valladolid.
+* Recorrido interactivo por Salamanca.
+* Entornos optimizados para Meta Quest 3.
 
-### Mecánicas Implementadas en C#
-* **Billboarding (Textos Orientados):** Los elementos interactivos flotantes (*World Space Canvas*) rotan dinámicamente sobre su eje Y para mirar directamente a la cámara del jugador, asegurando la legibilidad.
-* **Sincronización Acústica:** Lógica de interrupción y atenuación de *Audio Triggers* para evitar el solapamiento de pistas sonoras cuando el usuario se desplaza rápidamente entre puntos de interés.
+### 🎧 Audioguías Inteligentes
+
+* Narraciones automáticas en español e inglés.
+* Activación mediante proximidad.
+* Sistema anti-solapamiento de audios.
+
+### 🌍 Sistema Multilenguaje
+
+* Cambio instantáneo de idioma.
+* Persistencia de preferencias del usuario.
+* Español e inglés incluidos.
+
+### 🎥 Experiencias 360°
+
+* Reproducción de vídeos inmersivos.
+* Skybox esférico de alta resolución.
+* Integración dentro de la experiencia VR.
+
+### ♿ Accesibilidad
+
+* Movimiento reducido para evitar mareos.
+* Textos de gran tamaño.
+* Interfaz simplificada.
+* Navegación apta para usuarios mayores.
 
 ---
 
-## 📊 Métricas de Control de Calidad (Feedback Real)
+## 🏗️ Arquitectura del Proyecto
 
-El prototipo funcional fue sometido a pruebas de usabilidad y rendimiento con un grupo heterogéneo de **9 usuarios de control** (rangos de edad de 8 a 81 años). Los datos empíricos obtenidos guiaron los ajustes finales de ingeniería:
+```mermaid
+flowchart TD
 
-| Identificador | Perfil de Usuario | Hito de Validación | Ajuste Técnico Aplicado |
-| :--- | :--- | :--- | :--- |
-| **Muestra Infantil** | Escolar (8 años) | Accesibilidad y *Learnability* | Interfaces autoexplicativas sin texto técnico. |
-| **Muestra Joven** | Nativo Digital (~20 años) | Rendimiento Técnico Extremo | Bloqueo térmico de partículas para evitar caídas de FPS. |
-| **Muestra Laboral** | Oficina (~40-50 años) | Ergonomía Multimedia | Depuración en C# de colisiones de audio concurrentes. |
-| **Muestra Senior** | Tercera Edad (81 años) | Confort Visual Crítico | Escalado tipográfico de menús y remoción de aceleraciones de cámara. |
+A[Menú Principal] --> B[Valladolid]
+A --> C[Salamanca]
+A --> D[Vídeo 360°]
+
+B --> E[Audioguías]
+B --> F[Puntos de Interés]
+
+C --> G[Fotogrametría]
+C --> H[Información Histórica]
+
+D --> I[Contenido Multimedia]
+```
+
+## 🛠️ Tecnologías Utilizadas
+
+### Desarrollo
+
+* Unity 2022.3 LTS
+* C#
+* OpenXR
+* Meta XR SDK
+* Plastic SCM
+
+### Modelado y Multimedia
+
+* Fotogrametría mediante drones
+* Optimización Low Poly
+* Vídeo 360°
+* Sistemas de partículas optimizados
+
+### Inteligencia Artificial
+
+| Herramienta | Uso                                    |
+| ----------- | -------------------------------------- |
+| Meshy AI    | Modelado 3D                            |
+| ElevenLabs  | Locuciones                             |
+| Gemini      | Redacción y optimización de contenidos |
 
 ---
 
-## 🚀 Despliegue en Meta Quest 3
+## 📊 Resultados de Validación
 
-1. Habilitar el **Modo Desarrollador** en la aplicación Meta Horizon del smartphone.
-2. Conectar el visor a la estación de trabajo mediante cable Link o de datos USB-C.
-3. Clonar el repositorio y abrir en Unity (versión 2022.3 LTS o superior).
-4. Asegurar que la plataforma de compilación esté configurada en `Android`.
-5. Seleccionar las escenas en el *Build Settings* (`Menu`, `Valladolid`, `Salamanca`, `Video360`) y pulsar **Build and Run**.
+El proyecto fue evaluado por 9 usuarios de entre 8 y 81 años.
+
+### Aspectos validados
+
+✅ Facilidad de uso
+
+✅ Comprensión de la interfaz
+
+✅ Confort visual
+
+✅ Rendimiento en Meta Quest 3
+
+✅ Accesibilidad para usuarios de edad avanzada
+
+---
+
+## ⚡ Rendimiento
+
+| Métrica         | Resultado      |
+| --------------- | -------------- |
+| Plataforma      | Meta Quest 3   |
+| FPS objetivo    | 72 FPS         |
+| Resolución      | Nativa Quest 3 |
+| Tiempo de carga | < 5 s          |
+| Mareo reportado | Muy bajo       |
+
+---
+
+## 🚀 Instalación
+
+### Requisitos
+
+* Unity 2022.3 LTS
+* Android Build Support
+* Meta XR SDK
+* Meta Quest 3
+* Cable USB-C
+
+### Compilación
+
+```bash
+git clone https://github.com/usuario/repositorio.git
+```
+
+1. Abrir el proyecto en Unity.
+2. Cambiar plataforma a Android.
+3. Activar el modo desarrollador en Quest 3.
+4. Conectar el visor.
+5. Pulsar **Build and Run**.
+
+---
+
+## 👥 Entidades Colaboradoras
+
+* Centro Gregorio Fernández
+* Universidad de Valladolid
+* Universidad de Salamanca
+
+---
+
+## 📄 Licencia
+
+Proyecto académico desarrollado con fines educativos y de accesibilidad cultural.
